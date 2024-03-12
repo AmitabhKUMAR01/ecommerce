@@ -1,0 +1,109 @@
+@media screen and (width<= 1200px) {
+  .admin-container {
+    overflow: auto;
+  }
+
+  .dashboard {
+    .widget-container,
+    .graph-container,
+    .transaction-container {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .graph-container {
+      padding: 2rem;
+    }
+    .transaction-container {
+      padding: 2rem;
+      height: unset;
+    }
+  }
+
+  .product-management {
+    padding: 2rem;
+  }
+}
+
+@media screen and (width<= 1100px) {
+  .admin-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media screen and (width<= 768px) {
+  .cart {
+    display: block;
+    padding: 2rem;
+
+    > main {
+      width: 100%;
+    }
+    > aside {
+      width: 100%;
+    }
+  }
+
+  .cartitem {
+    width: 100%;
+    > img {
+      width: 3rem;
+      height: 3rem;
+    }
+    > div {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  .product-search-page {
+    display: block;
+    padding: 0;
+
+    > aside {
+      @include flex(row, space-between, center);
+      flex-wrap: wrap;
+      box-shadow: none;
+      > h2 {
+        @include heading;
+        font-size: 1.2rem;
+      }
+    }
+    > main > input {
+      width: 100%;
+      border: 1px solid rgba(212, 212, 212, 0.379);
+    }
+  }
+}
+
+@media screen and (width<= 600px) {
+  .product-management {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    > section {
+      max-width: 400px;
+    }
+  }
+
+  .chart-container {
+    padding: 0;
+    > h1 {
+      margin: 0;
+      text-align: center;
+    }
+    > section {
+      margin: 8rem auto;
+    }
+  }
+
+  .dashboard-app-container > section {
+    .coupon-form,
+    .stopwatch {
+      display: flex;
+      flex-direction: column;
+    }
+    .stopwatch {
+      align-items: center;
+    }
+  }
+}

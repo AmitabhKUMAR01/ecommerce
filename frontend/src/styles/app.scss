@@ -1,0 +1,330 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+$color1: white;
+$color2: rgb(46, 46, 46);
+$color3: rgb(0, 104, 136);
+// @mixin btn($padding,$color1, $color2){
+//     padding: $padding;
+//     background: $color2;
+//     &:hover{
+//       background-color: $color1;
+//     }
+// }
+.red {
+  color: red;
+}
+.purple {
+  color: rgb(47, 0, 255);
+}
+.green {
+  color: rgb(0, 195, 0);
+}
+
+@import "admin-styles/mixin";
+@import "home";
+@import "cart";
+@import "shipping";
+@import "login";
+@import "search";
+@import "admin-styles/dashboard";
+@import "admin-styles/products";
+@import "admin-styles/chart";
+@import "admin-styles/dashboardapp";
+@import "admin-styles/mediaquery";
+
+.container {
+  max-width: 1367px;
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+  > h1 {
+    @include heading;
+    margin: 1rem 0;
+    text-align: left;
+  }
+}
+
+.heading {
+  @include heading;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.header {
+  @include flex(row, flex-end, stretch, 1.2rem);
+  padding: 1rem;
+  a {
+    color: $color2;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: $color3;
+    }
+  }
+
+  button {
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: transparent;
+    &:hover {
+      color: $color3;
+    }
+  }
+
+  dialog {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100px;
+    position: absolute;
+    left: calc(100% - 100px);
+    top: 8%;
+    > div {
+      @include flex(column, flex-start, center, 0.25rem);
+    }
+  }
+}
+.not-found {
+  height: 80vh;
+  @include flex(column);
+  > svg {
+    font-size: 5rem;
+  }
+}
+
+.checkout-container {
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  > form {
+    @include flex(column, flex-start, stretch, 2rem);
+
+    > button {
+      @include btn(1rem, $color3, $color1);
+      width: 100%;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.admin-container {
+  @include grid(1fr 4fr, 2rem);
+  height: 100vh;
+  background-color: rgb(247, 247, 247);
+  > aside {
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    z-index: 10;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > div {
+      margin: 2rem 1rem;
+      > h5 {
+        @include heading(2px);
+        opacity: 0.8;
+        margin: 1rem 0;
+      }
+      > ul {
+        @include flex(column, unset, unset, 0.5rem);
+        list-style: none;
+        > li {
+          padding: 0.5rem 1rem;
+          border-radius: 10px;
+          a {
+            color: rgba(0, 0, 0, 0.825);
+            @include flex(row, unset);
+          }
+        }
+      }
+    }
+  }
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: bold;
+    color: #0000009e;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 2rem 1rem;
+  }
+
+  tbody {
+    tr {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
+    }
+
+    td {
+      padding: 1rem;
+
+      img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+      a {
+        text-decoration: none;
+        background-color: rgba(44, 104, 255, 0.455);
+        color: rgba(44, 104, 255);
+        padding: 0.25rem 0.5rem;
+        border-radius: 10px;
+      }
+      button {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.1rem;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        color: rgb(255, 44, 44);
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+.table-pagination {
+  @include flex;
+  padding: 2rem;
+  > button {
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 115, 255);
+    color: white;
+    &:disabled {
+      background-color: rgba(0, 115, 255, 0.1);
+      cursor: not-allowed;
+    }
+  }
+}
+
+#hamburger {
+  display: grid;
+  place-items: center;
+  @include square(3rem);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: rgba(44, 104, 255);
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 9;
+}
+
+#close-sidebar {
+  width: 80%;
+  margin: 1rem auto;
+  display: block;
+  padding: 0.75rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(168, 2, 2);
+  color: white;
+  border-radius: 10px;
+}
+
+.loader {
+  width: 100%;
+  height: 85vh;
+  @include flex;
+  > div {
+    @include square(10rem);
+    border-radius: 50%;
+    border-top: 1rem solid rgb(43, 43, 43);
+    border-left: 1rem solid rgb(43, 43, 43);
+    border-right: 1rem solid #fff;
+    border-bottom: 1rem solid #fff;
+    animation: loading-animation 0.5s linear infinite;
+  }
+}
+
+.skeleton-loader {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-shape {
+  height: 30px;
+  width: 100%;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  animation: skeleon-loading 1.5s infinite;
+}
+
+@keyframes loading-animation {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes up-and-down {
+  to {
+    transform: translate(-50%, -20%);
+  }
+}
+
+@keyframes skeleon-loading {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

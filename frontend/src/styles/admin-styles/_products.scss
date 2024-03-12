@@ -1,0 +1,179 @@
+.dashboard-product-box {
+  background-color: white;
+  padding: 2rem;
+  overflow: auto;
+  @include square(100%);
+}
+
+.create-product-btn {
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+  @include square(2.5rem);
+  @include flex(row, center, center, 0);
+  border-radius: 50%;
+  background-color: rgb(201, 9, 9);
+  color: white;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.product-delete-btn {
+  background-color: rgb(56, 56, 56);
+  color: white;
+  font-size: 1.2rem;
+  @include square(2.5rem);
+  @include flex;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: -1.2rem;
+  right: -1.2rem;
+}
+
+.product-management {
+  @include flex(row, center, unset);
+  padding: 4rem;
+
+  > section {
+    overflow-y: auto;
+    width: 100%;
+    height: 85vh;
+    max-width: 500px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.216);
+    background-color: white;
+    padding: 5rem;
+    @include flex(column, unset, unset, 1rem);
+    position: relative;
+    border-radius: 5px;
+
+    > h2 {
+      @include heading(2px);
+      text-align: center;
+    }
+
+    > img {
+      @include square(100%);
+      object-fit: contain;
+    }
+
+    > strong {
+      font-weight: 300;
+    }
+
+    > span {
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+    }
+
+    > p {
+      text-align: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    > h3 {
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+
+  > article {
+    height: 85vh;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.216);
+    position: relative;
+
+    > form {
+      @include flex(column, unset, center, 2rem);
+      > h2 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      > img {
+        @include square(5rem);
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      > div {
+        width: 100%;
+        position: relative;
+        > label {
+          position: absolute;
+          left: 0;
+          top: -1.5rem;
+        }
+
+        > input {
+          @include inputStyle(
+            100%,
+            1rem,
+            unset,
+            1px solid rgba(13, 13, 13, 0.196)
+          );
+          border-radius: 5px;
+        }
+      }
+
+      > button {
+        padding: 1rem;
+        border: none;
+        background-color: rgb(5, 107, 224);
+        color: white;
+        width: 100%;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .shipping-info-card {
+    > h1 {
+      text-align: center;
+      @include heading(2px);
+    }
+    > h5 {
+      margin: 2rem 0 0 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    > p {
+      margin: 0.5rem;
+    }
+    > .shipping-btn {
+      margin: 2rem 0;
+      padding: 1rem;
+      border: none;
+      background-color: rgb(5, 107, 224);
+      color: white;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.transaction-product-card {
+  @include flex(row, unset, center, 1rem);
+
+  > img {
+    @include square(4rem);
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  > span {
+    margin-left: auto;
+  }
+}

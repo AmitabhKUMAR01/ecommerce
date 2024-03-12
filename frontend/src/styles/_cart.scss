@@ -1,0 +1,108 @@
+.cart {
+  padding: 2rem 4rem;
+  @include flex(row, unset, unset, 4rem);
+  height: calc(100vh - 4rem);
+
+  > main {
+    width: 70%;
+    > h1 {
+      @include heading(2px);
+      text-align: center;
+    }
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  > aside {
+    width: 30%;
+    padding: 4rem;
+    @include flex(column, center, stretch, 1.5rem);
+    > input {
+      padding: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.28);
+      outline: none;
+      border-radius: 5px;
+      margin-top: 2rem;
+    }
+    > p {
+      font-size: 1.1rem;
+    }
+
+    > a {
+      background-color: $color3;
+      padding: 1rem;
+      text-decoration: none;
+      color: $color1;
+      @include flex;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-radius: 5px;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    > span {
+      margin-top: -1rem;
+      @include flex(row, center, center, 5px);
+      > code {
+        font-weight: 900;
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+.cart-item {
+  padding: 1rem;
+  @include flex(row, flex-start, center, 3rem);
+  > img {
+    @include square(10rem);
+    object-fit: contain;
+  }
+
+  > article {
+    @include flex(column, center, flex-start, 0.25rem);
+    a {
+      font-size: 1.2rem;
+      color: $color2;
+      &:hover {
+        color: $color3;
+      }
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  > div {
+    margin-left: auto;
+    @include flex;
+    button {
+      border: none;
+      @include square(2rem);
+      border-radius: 5px;
+      @include flex;
+      cursor: pointer;
+      font-size: 1.2rem;
+      &:hover {
+        background-color: $color2;
+        color: $color1;
+      }
+    }
+  }
+
+  > button {
+    border: none;
+    background-color: transparent;
+    @include flex;
+    cursor: pointer;
+    font-size: 1.2rem;
+    &:hover {
+      color: red;
+    }
+  }
+}
